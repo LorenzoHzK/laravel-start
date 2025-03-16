@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+use Illuminate\Http\Request;
+use App\Models\User;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-            $products = Product::all();
-            return response()->json($products);
+            $user = User::all();
+            return response()->json($user);
     }
 
     /**
@@ -20,10 +21,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create([
+        $user = User::create([
             'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description
+            'email' => $request->email,
+            'password' => $request->password
         ]);
     }
 
@@ -32,8 +33,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
     /**

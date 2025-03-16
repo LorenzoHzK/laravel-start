@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Profile;
 
-class ProductController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-            $products = Product::all();
-            return response()->json($products);
+        //
     }
 
     /**
@@ -20,10 +19,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description
+            $profile = Profile::create([
+            'tittle' => $request->tittle
         ]);
     }
 
@@ -32,8 +29,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        $profile = Profile::findOrFail($id);
+        return response()->json($profile);
     }
 
     /**

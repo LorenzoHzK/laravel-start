@@ -3,6 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +25,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('products', ProductController::class);
+
+Route::resource('post', PostController::class);
+
+Route::resource('categorie', CategorieController::class);
+
+Route::resource('profile', ProfileController::class);
+
+Route::resource('user', UserController::class);
+
+Route::resource('tag', TagController::class);

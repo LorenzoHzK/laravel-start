@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
 
         Category::insert([
             ['name' => 'Tecnology', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Clothes', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Peripherals', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'Hardware', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }

@@ -1,18 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Tag;
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-            $products = Product::all();
-            return response()->json($products);
+        //
     }
 
     /**
@@ -20,10 +19,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create([
+            $tag = Tag::create([
             'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description
+            'about' => $request->about
         ]);
     }
 
@@ -32,8 +30,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        $tag = Tag::findOrFail($id);
+        return response()->json($tag);
     }
 
     /**

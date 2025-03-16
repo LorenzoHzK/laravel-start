@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Category;
 
-class ProductController extends Controller
+class CategorieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-            $products = Product::all();
-            return response()->json($products);
+        $category = Category::all();
+        return response()->json($category);
     }
 
     /**
@@ -20,10 +20,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description
+        $category = Category::create([
+        'name' => $request->name
         ]);
     }
 
@@ -32,8 +30,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        $category = Category::findOrFail($id);
+        return response()->json($category);
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -11,7 +11,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $post = Post::all();
+        return response()->json($post);
     }
 
     /**
@@ -20,8 +21,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = Post::create([
-            'tittle' => $request->name,
-            'content' => $request->price,
+            'tittle' => $request->tittle,
+            'content' => $request->content,
             'description' => $request->description
         ]);
     }
@@ -31,6 +32,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
+        $post = Post::findOrFail($id);
         return response()->json($post);
     }
 

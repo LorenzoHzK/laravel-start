@@ -26,5 +26,13 @@ class ProductSeeder extends Seeder
             'description' => 'The best Video Card for gamers, to play the maximum quality',
             'category_id' => 3
         ]);
+
+
+        Product::create([
+            'name' => 'Mouse Fortrek',
+            'price' => 40,
+            'description' => 'Mouse by gamers to gamers',
+            'category_id' => 2
+        ]);
     }
 }
